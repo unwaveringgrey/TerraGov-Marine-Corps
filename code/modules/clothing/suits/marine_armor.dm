@@ -2,7 +2,7 @@
 
 /obj/item/clothing/suit/storage/marine
 	name = "\improper M3 pattern marine armor"
-	desc = "A standard TerraGov Marine Corps M3 Pattern Chestplate. Protects the chest from ballistic rounds, bladed objects and accidents. It has a small leather pouch strapped to it for limited storage."
+	desc = "A standard TerraGov Marine Corps M3 Pattern Chestplate. Protects the chest from ballistic rounds, bladed objects and accidents. It has straps for attaching pouches or other small items."
 	icon = 'icons/obj/clothing/cm_suits.dmi'
 	icon_state = "3"
 	item_state = "armor"
@@ -25,6 +25,11 @@
 		/obj/item/storage/large_holster/machete,
 		/obj/item/weapon/claymore,
 		/obj/item/storage/belt/gun)
+	attachmentsAllowed = list(/obj/item/storage/pouch,
+		/obj/item/storage/large_holster/machete,
+		/obj/item/storage/large_holster/katana,
+		/obj/item/storage/large_holster/m39)
+
 	var/locate_cooldown = 0 //Cooldown for SL locator
 	var/list/armor_overlays
 	actions_types = list(/datum/action/item_action/toggle)
@@ -32,17 +37,9 @@
 	w_class = WEIGHT_CLASS_HUGE
 	time_to_unequip = 2 SECONDS
 	time_to_equip = 2 SECONDS
-	pockets = /obj/item/storage/internal/suit/marine
+	var/attachment = /obj/item
 	flags_item_map_variant = (ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_PRISON_VARIANT)
 
-/obj/item/storage/internal/suit/marine
-	bypass_w_limit = list(
-		/obj/item/ammo_magazine/rifle,
-		/obj/item/ammo_magazine/smg,
-		/obj/item/ammo_magazine/sniper,
-		/obj/item/cell/lasgun
-	)
-	max_storage_space = 6
 
 /obj/item/clothing/suit/storage/marine/Initialize()
 	. = ..()
@@ -69,8 +66,8 @@
 	return ..()
 
 /obj/item/clothing/suit/storage/marine/Destroy()
-	if(pockets)
-		qdel(pockets)
+	if(attachment)
+		qdel(attachment)
 	return ..()
 
 /obj/item/clothing/suit/storage/marine/attack_self(mob/user)
@@ -127,13 +124,14 @@
 	icon_state = "4"
 	armor = list("melee" = 60, "bullet" = 60, "laser" = 40, "energy" = 20, "bomb" = 50, "bio" = 35, "rad" = 10, "fire" = 35, "acid" = 35)
 	slowdown = SLOWDOWN_ARMOR_HEAVY
-	pockets = /obj/item/storage/internal/suit/marine/M3IS
+//I should probably re-implement this particular armor having pockets since that's it's schtick
+	//pockets = /obj/item/storage/internal/suit/marine/M3IS
 
-/obj/item/storage/internal/suit/marine/M3IS
-	bypass_w_limit = list()
-	storage_slots = null
-	max_storage_space = 15 // Same as satchel
-	max_w_class = 3
+///obj/item/storage/internal/suit/marine/M3IS
+//	bypass_w_limit = list()
+	// storage_slots = null
+	// max_storage_space = 15 // Same as satchel
+	// max_w_class = 3
 
 /obj/item/clothing/suit/storage/marine/M3E
 	name = "\improper M3-E pattern marine armor"
@@ -163,7 +161,6 @@
 	armor = list("melee" = 55, "bullet" = 55, "laser" = 45, "energy" = 40, "bomb" = 40, "bio" = 40, "rad" = 15, "fire" = 40, "acid" = 40)
 	slowdown = SLOWDOWN_ARMOR_LIGHT
 	brightness_on = 8
-	pockets = /obj/item/storage/internal/suit/leader
 
 /obj/item/storage/internal/suit/leader
 	storage_slots = 3
@@ -172,7 +169,7 @@
 
 /obj/item/clothing/suit/storage/marine/MP
 	name = "\improper N2 pattern MA armor"
-	desc = "A standard TerraGov Navy N2 Pattern Chestplate. Protects the chest from ballistic rounds, bladed objects and accidents. It has a small leather pouch strapped to it for limited storage."
+	desc = "A standard TerraGov Navy N2 Pattern Chestplate. Protects the chest from ballistic rounds, bladed objects and accidents. It has straps for attaching pouches or other small items."
 	icon_state = "mp"
 	armor = list("melee" = 40, "bullet" = 60, "laser" = 35, "energy" = 20, "bomb" = 25, "bio" = 40, "rad" = 10, "fire" = 20, "acid" = 20)
 	slowdown = SLOWDOWN_ARMOR_LIGHT
@@ -395,7 +392,6 @@
 	item_state = "guardSLarmor"
 	armor = list("melee" = 85, "bullet" = 85, "laser" = 85, "energy" = 85, "bomb" = 85, "bio" = 25, "rad" = 25, "fire" = 85, "acid" = 85)
 	brightness_on = 6 // better light
-	pockets = /obj/item/storage/internal/suit/imperial
 
 /obj/item/storage/internal/suit/imperial
 	storage_slots = 3
@@ -422,7 +418,6 @@
 	//icon_state
 	armor = list("melee" = 75, "bullet" = 60, "laser" = 55, "energy" = 40, "bomb" = 45, "bio" = 15, "rad" = 15, "fire" = 40, "acid" = 40)
 	brightness_on = 6
-	pockets = /obj/item/storage/internal/suit/imperial
 
 /obj/item/clothing/suit/storage/marine/imperial/power/astartes
 	// This should either be admin only or only given to one person

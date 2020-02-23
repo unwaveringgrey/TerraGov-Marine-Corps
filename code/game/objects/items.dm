@@ -48,6 +48,7 @@
 	var/breakouttime = 0
 
 	var/list/allowed = null //suit storage stuff.
+	var/list/attachmentsAllowed = null //used for armor attachments.
 	var/zoomdevicename = null //name used for message when binoculars/scope is used
 	var/zoom = FALSE //TRUE if item is actively being used to zoom. For scoped guns and binoculars.
 
@@ -511,9 +512,11 @@
 					return TRUE
 			if(SLOT_IN_SUIT)
 				var/obj/item/clothing/suit/storage/S = H.wear_suit
-				if(!istype(S) || !S.pockets)
+				if(!istype(S) || !S.has_attachment)
 					return FALSE
-				var/obj/item/storage/internal/T = S.pockets
+				var/obj/item/storage/T = S.has_attachment
+				if(!istype(T))
+					return FALSE
 				if(T.can_be_inserted(src, warning))
 					return TRUE
 			if(SLOT_IN_HEAD)

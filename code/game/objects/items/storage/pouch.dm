@@ -106,8 +106,13 @@
 	new /obj/item/stack/sheet/plasteel(src, 15)
 	new /obj/item/tool/weldingtool(src)
 
+/obj/item/storage/pouch/on_suit_attached(obj/item/clothing/suit/storage/S, mob/user)
+	..()
+	has_suit.verbs += /obj/item/clothing/suit/storage/verb/toggle_draw_mode
 
-
+/obj/item/storage/pouch/on_suit_removed()
+	..()
+	has_suit.verbs -= /obj/item/clothing/suit/storage/verb/toggle_draw_mode
 
 /obj/item/storage/pouch/firstaid
 	name = "first-aid pouch"
@@ -176,7 +181,7 @@
 	desc = "It can contain ammo magazines."
 	icon_state = "medium_ammo_mag"
 	max_w_class = 3
-	storage_slots = 2
+	storage_slots = 3
 	draw_mode = 0
 	can_hold = list(
 		/obj/item/ammo_magazine/rifle,
@@ -190,7 +195,8 @@
 /obj/item/storage/pouch/magazine/large
 	name = "large magazine pouch"
 	icon_state = "large_ammo_mag"
-	storage_slots = 3
+	storage_slots = 5
+	flags_equip_slot = ITEM_SLOT_DENYPOCKET
 
 
 
@@ -199,7 +205,7 @@
 	desc = "It can contain pistol and revolver ammo magazines."
 	max_w_class = 2
 	icon_state = "pistol_mag"
-	storage_slots = 3
+	storage_slots = 4
 
 	can_hold = list(
 		/obj/item/ammo_magazine/pistol,
@@ -208,7 +214,9 @@
 /obj/item/storage/pouch/magazine/pistol/large
 	name = "large pistol magazine pouch"
 	storage_slots = 6
+	max_w_class = 2
 	icon_state = "large_pistol_mag"
+	flags_equip_slot = ITEM_SLOT_DENYPOCKET
 
 /obj/item/storage/pouch/magazine/pistol/large/full
 	fill_type = /obj/item/ammo_magazine/pistol
@@ -336,6 +344,7 @@
 	desc = "It's specifically made to hold a medkit."
 	can_hold = list(/obj/item/storage/firstaid)
 	bypass_w_limit = list(/obj/item/storage/firstaid)
+	flags_equip_slot = ITEM_SLOT_DENYPOCKET
 
 
 /obj/item/storage/pouch/medkit/full
@@ -422,6 +431,7 @@
 		/obj/item/binoculars,
 		/obj/item/map/current_map,
 		/obj/item/squad_beacon)
+	flags_equip_slot = ITEM_SLOT_DENYPOCKET
 
 /obj/item/storage/pouch/field_pouch/full/Initialize()
 	. = ..()

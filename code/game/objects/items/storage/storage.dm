@@ -37,6 +37,7 @@
 	var/use_sound = "rustle"	//sound played when used. null for no sound.
 	var/opened = 0 //Has it been opened before?
 	var/list/content_watchers = list() //list of mobs currently seeing the storage's contents
+	var/obj/item/clothing/suit/storage/has_suit = null //used to attach some storage items to suits
 
 /obj/item/storage/MouseDrop(obj/over_object as obj)
 	if(ishuman(usr) || ismonkey(usr)) //so monkeys can take off their backpacks -- Urist
@@ -710,3 +711,21 @@
 		return ..() //User is already holding something.
 	var/obj/item/drawn_item = contents[length(contents)]
 	drawn_item.attack_hand(user)
+
+//general suit attachment and removal procs
+/obj/item/storage/proc/on_suit_attached(obj/item/clothing/suit/storage/S, mob/living/user)
+	if(!istype(S))
+		return
+	has_suit = S
+	loc = user
+	//has_suit.overlays += inv_overlay
+
+	if(user)
+		to_chat(user, "<span class='notice'>You attach [src] to [has_suit].</span>")
+
+/obj/item/storage/proc/on_suit_removed()
+	if(!has_suit)
+		return FALSE
+	//has_suit.overlays -= inv_overlay
+	has_suit = null
+	return TRUE

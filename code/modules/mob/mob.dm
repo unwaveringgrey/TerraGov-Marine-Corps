@@ -222,7 +222,7 @@
 		return TRUE
 	return FALSE
 
-//This is a SAFE proc. Use this instead of equip_to_splot()!
+//This is a SAFE proc. Use this instead of equip_to_slot()!
 //set del_on_fail to have it delete W if it fails to equip
 //unset redraw_mob to prevent the mob from being redrawn at the end.
 /mob/proc/equip_to_slot_if_possible(obj/item/W, slot, ignore_delay = TRUE, del_on_fail = FALSE, warning = TRUE, redraw_mob = TRUE, permanent = FALSE)
@@ -321,13 +321,13 @@
 		return TRUE
 	else if(istype(I, /obj/item/clothing/suit/storage))
 		var/obj/item/clothing/suit/storage/S = I
-		if(!S.pockets)
+		if(!S.has_attachment)
 			return FALSE
-		var/obj/item/storage/internal/P = S.pockets
-		if(!length(P.contents))
+		var/obj/item/storage/A = S.has_attachment
+		if(!istype(A))
 			return FALSE
-		var/obj/item/W = P.contents[length(P.contents)]
-		P.remove_from_storage(W)
+		var/obj/item/W = A.contents[length(A.contents)]
+		A.remove_from_storage(W)
 		put_in_hands(W)
 		return TRUE
 	else if(istype(I, /obj/item/storage))
