@@ -21,7 +21,7 @@
 	ears = /obj/item/radio/headset/distress/commando
 	w_uniform = /obj/item/clothing/under/marine/veteran/PMC/commando
 	shoes = /obj/item/clothing/shoes/veteran/PMC/commando
-	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/PMC/commando
+	wear_suit = /obj/item/clothing/suit/attachment/marine/veteran/PMC/commando
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC/commando
 	head = /obj/item/clothing/head/helmet/marine/veteran/PMC/commando
 	mask = /obj/item/clothing/mask/gas/PMC
@@ -63,7 +63,7 @@
 	ears = /obj/item/radio/headset/distress/commando
 	w_uniform = /obj/item/clothing/under/marine/veteran/PMC/commando
 	shoes = /obj/item/clothing/shoes/veteran/PMC/commando
-	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/PMC/commando
+	wear_suit = /obj/item/clothing/suit/attachment/marine/veteran/PMC/commando
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC/commando
 	head = /obj/item/clothing/head/helmet/marine/veteran/PMC/commando
 	mask = /obj/item/clothing/mask/gas/PMC
@@ -112,7 +112,7 @@
 	ears = /obj/item/radio/headset/distress/commando
 	w_uniform = /obj/item/clothing/under/marine/veteran/PMC/commando
 	shoes = /obj/item/clothing/shoes/veteran/PMC/commando
-	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/PMC/commando
+	wear_suit = /obj/item/clothing/suit/attachment/marine/veteran/PMC/commando
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC/commando
 	head = /obj/item/clothing/head/helmet/marine/veteran/PMC/commando
 	mask = /obj/item/clothing/mask/gas/PMC

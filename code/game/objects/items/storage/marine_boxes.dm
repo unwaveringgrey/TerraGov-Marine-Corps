@@ -16,7 +16,7 @@
 	new /obj/item/clothing/glasses/night/m56_goggles(src)
 	new /obj/item/weapon/gun/smartgun(src)
 	new /obj/item/smartgun_powerpack(src)
-	new /obj/item/clothing/suit/storage/marine/smartgunner(src)
+	new /obj/item/clothing/suit/attachment/marine/smartgunner(src)
 
 /obj/item/smartgun_powerpack
 	name = "\improper M56 powerpack"
@@ -179,7 +179,7 @@
 /obj/item/storage/box/heavy_armor/Initialize(mapload, ...)
 	. = ..()
 	new /obj/item/clothing/gloves/marine/specialist(src)
-	new /obj/item/clothing/suit/storage/marine/specialist(src)
+	new /obj/item/clothing/suit/attachment/marine/specialist(src)
 	new /obj/item/clothing/head/helmet/marine/specialist(src)
 
 /obj/item/storage/box/m42c_system
@@ -195,7 +195,7 @@
 
 /obj/item/storage/box/m42c_system/Initialize(mapload, ...)
 	. = ..()
-	new /obj/item/clothing/suit/storage/marine/sniper(src)
+	new /obj/item/clothing/suit/attachment/marine/sniper(src)
 	new /obj/item/clothing/head/helmet/marine/sniper(src)
 	new /obj/item/clothing/glasses/night/m42_night_goggles(src)
 	new /obj/item/ammo_magazine/sniper(src)
@@ -227,7 +227,7 @@
 
 /obj/item/storage/box/m42c_system_Jungle/Initialize(mapload, ...)
 	. = ..()
-	new /obj/item/clothing/suit/storage/marine/sniper/jungle(src)
+	new /obj/item/clothing/suit/attachment/marine/sniper/jungle(src)
 	new /obj/item/clothing/head/helmet/marine/sniper(src)
 	new /obj/item/clothing/glasses/m42_goggles(src)
 	new /obj/item/clothing/head/helmet/durag/jungle(src)
@@ -304,7 +304,7 @@
 
 /obj/item/storage/box/spec/demolitionist/Initialize(mapload, ...)
 	. = ..()
-	new /obj/item/clothing/suit/storage/marine/M3T(src)
+	new /obj/item/clothing/suit/attachment/marine/M3T(src)
 	new /obj/item/clothing/head/helmet/marine/standard(src)
 	new /obj/item/weapon/gun/launcher/rocket(src)
 	new /obj/item/ammo_magazine/rocket(src)
@@ -337,7 +337,7 @@
 
 /obj/item/storage/box/spec/sniper/Initialize(mapload, ...)
 	. = ..()
-	new /obj/item/clothing/suit/storage/marine/sniper(src)
+	new /obj/item/clothing/suit/attachment/marine/sniper(src)
 	new /obj/item/clothing/head/helmet/marine/sniper(src)
 	new /obj/item/clothing/glasses/night/m42_night_goggles(src)
 	new /obj/item/ammo_magazine/sniper(src)
@@ -376,7 +376,7 @@
 
 /obj/item/storage/box/spec/scout/Initialize(mapload, ...)
 	. = ..()
-	new /obj/item/clothing/suit/storage/marine/M3S(src)
+	new /obj/item/clothing/suit/attachment/marine/M3S(src)
 	new /obj/item/clothing/head/helmet/marine/scout(src)
 	new /obj/item/clothing/glasses/night/M4RA(src)
 	new /obj/item/ammo_magazine/rifle/m4ra(src)
@@ -416,7 +416,7 @@
 
 /obj/item/storage/box/spec/scoutshotgun/Initialize(mapload, ...)
 	. = ..()
-	new /obj/item/clothing/suit/storage/marine/M3S(src)
+	new /obj/item/clothing/suit/attachment/marine/M3S(src)
 	new /obj/item/clothing/head/helmet/marine/scout(src)
 	new /obj/item/clothing/glasses/night/M4RA(src)
 	new /obj/item/binoculars/tactical/scout(src)
@@ -448,7 +448,7 @@
 /obj/item/storage/box/spec/tracker/Initialize(mapload, ...)
 	. = ..()
 
-	new /obj/item/clothing/suit/storage/marine/M3S(src)
+	new /obj/item/clothing/suit/attachment/marine/M3S(src)
 	new /obj/item/clothing/head/helmet/marine/scout(src)
 	new /obj/item/clothing/glasses/thermal/m64_thermal_goggles(src)
 	new /obj/item/weapon/gun/shotgun/pump/lever/mbx900(src)
@@ -482,7 +482,7 @@
 
 /obj/item/storage/box/spec/pyro/Initialize(mapload, ...)
 	. = ..()
-	new /obj/item/clothing/suit/storage/marine/M35(src)
+	new /obj/item/clothing/suit/attachment/marine/M35(src)
 	new /obj/item/clothing/head/helmet/marine/pyro(src)
 	new /obj/item/clothing/shoes/marine/pyro(src)
 	new /obj/item/storage/backpack/marine/engineerpack/flamethrower(src)
@@ -510,7 +510,7 @@
 	. = ..()
 	new /obj/item/weapon/gun/launcher/m92(src)
 	new /obj/item/storage/belt/grenade/b17(src)
-	new /obj/item/clothing/suit/storage/marine/B17(src)
+	new /obj/item/clothing/suit/attachment/marine/B17(src)
 	new /obj/item/clothing/head/helmet/marine/grenadier(src)
 	new /obj/item/storage/box/nade_box(src)
 	new /obj/item/storage/box/nade_box(src)
@@ -531,7 +531,7 @@
 /obj/item/storage/box/spec/heavy_gunner/Initialize(mapload, ...)
 	. = ..()
 	new /obj/item/clothing/gloves/marine/specialist(src)
-	new /obj/item/clothing/suit/storage/marine/specialist(src)
+	new /obj/item/clothing/suit/attachment/marine/specialist(src)
 	new /obj/item/clothing/head/helmet/marine/specialist(src)
 	new /obj/item/weapon/gun/minigun(src)
 	new /obj/item/belt_harness/marine(src)

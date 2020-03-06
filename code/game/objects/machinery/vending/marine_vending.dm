@@ -583,7 +583,7 @@
 	wrenchable = FALSE
 
 	products = list(
-						/obj/item/clothing/suit/storage/marine/leader = 1,
+						/obj/item/clothing/suit/attachment/marine/leader = 1,
 						/obj/item/clothing/head/helmet/marine/leader = 1,
 						/obj/item/clothing/tie/storage/webbing = 1,
 						/obj/item/squad_beacon = 3,
@@ -691,11 +691,11 @@
 					/obj/item/storage/backpack/marine/standard = 10,
 					/obj/item/storage/backpack/marine/satchel = 10,
 					/obj/item/clothing/gloves/marine = 20,
-					/obj/item/clothing/suit/storage/marine = 10,
-					/obj/item/clothing/suit/storage/marine/M3HB = 10,
-					/obj/item/clothing/suit/storage/marine/M3LB = 10,
-					/obj/item/clothing/suit/storage/marine/M3IS = 10,
-					/obj/item/clothing/suit/storage/marine/harness = 10,
+					/obj/item/clothing/suit/attachment/marine = 10,
+					/obj/item/clothing/suit/attachment/marine/M3HB = 10,
+					/obj/item/clothing/suit/attachment/marine/M3LB = 10,
+					/obj/item/clothing/suit/attachment/marine/M3IS = 10,
+					/obj/item/clothing/suit/attachment/marine/harness = 10,
 					/obj/item/clothing/head/helmet/marine/standard = 20,
 					/obj/item/clothing/head/helmet/marine/heavy = 20,
 					/obj/item/clothing/glasses/mgoggles = 10,

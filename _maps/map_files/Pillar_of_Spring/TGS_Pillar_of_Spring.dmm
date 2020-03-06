@@ -7327,7 +7327,7 @@
 /obj/structure/closet/secure_closet/securecom,
 /obj/item/weapon/gun/smartgun,
 /obj/item/smartgun_powerpack/fancy,
-/obj/item/clothing/suit/storage/marine/smartgunner/fancy,
+/obj/item/clothing/suit/attachment/marine/smartgunner/fancy,
 /turf/open/floor/mainship{
 	icon_state = "redfull"
 	},

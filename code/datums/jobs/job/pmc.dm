@@ -21,7 +21,7 @@
 	ears = /obj/item/radio/headset/distress/PMC
 	w_uniform = /obj/item/clothing/under/marine/veteran/PMC
 	shoes = /obj/item/clothing/shoes/veteran/PMC
-	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/PMC
+	wear_suit = /obj/item/clothing/suit/attachment/marine/veteran/PMC
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC
 	head = /obj/item/clothing/head/helmet/marine/veteran/PMC
 	mask = /obj/item/clothing/mask/gas/PMC/leader
@@ -68,7 +68,7 @@
 	ears = /obj/item/radio/headset/distress/PMC
 	w_uniform = /obj/item/clothing/under/marine/veteran/PMC
 	shoes = /obj/item/clothing/shoes/veteran/PMC
-	wear_suit = /obj/item/clothing/suit/storage/marine/smartgunner/veteran/PMC
+	wear_suit = /obj/item/clothing/suit/attachment/marine/smartgunner/veteran/PMC
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC
 	head = /obj/item/clothing/head/helmet/marine/veteran/PMC/gunner
 	mask = /obj/item/clothing/mask/gas/PMC
@@ -111,7 +111,7 @@
 	ears = /obj/item/radio/headset/distress/PMC
 	w_uniform = /obj/item/clothing/under/marine/veteran/PMC
 	shoes = /obj/item/clothing/shoes/veteran/PMC
-	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/PMC/sniper
+	wear_suit = /obj/item/clothing/suit/attachment/marine/veteran/PMC/sniper
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC
 	head = /obj/item/clothing/head/helmet/marine/veteran/PMC/sniper
 	mask = /obj/item/clothing/mask/gas/PMC
@@ -157,7 +157,7 @@
 	ears = /obj/item/radio/headset/distress/PMC
 	w_uniform = /obj/item/clothing/under/marine/veteran/PMC/leader
 	shoes = /obj/item/clothing/shoes/veteran/PMC
-	wear_suit = /obj/item/clothing/suit/storage/marine/veteran/PMC/leader
+	wear_suit = /obj/item/clothing/suit/attachment/marine/veteran/PMC/leader
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC
 	head = /obj/item/clothing/head/helmet/marine/veteran/PMC/leader
 	mask = /obj/item/clothing/mask/gas/PMC/leader

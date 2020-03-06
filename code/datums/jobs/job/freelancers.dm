@@ -21,7 +21,7 @@
 	ears = /obj/item/radio/headset/distress/dutch
 	w_uniform = /obj/item/clothing/under/marine/veteran/freelancer
 	shoes = /obj/item/clothing/shoes/marine
-	wear_suit = /obj/item/clothing/suit/storage/faction/freelancer
+	wear_suit = /obj/item/clothing/suit/attachment/faction/freelancer
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC
 	head = /obj/item/clothing/head/frelancer
 	suit_store = /obj/item/weapon/gun/rifle/m16
@@ -76,7 +76,7 @@
 	ears = /obj/item/radio/headset/distress/dutch
 	w_uniform = /obj/item/clothing/under/marine/veteran/freelancer
 	shoes = /obj/item/clothing/shoes/marine
-	wear_suit = /obj/item/clothing/suit/storage/faction/freelancer
+	wear_suit = /obj/item/clothing/suit/attachment/faction/freelancer
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC
 	head = /obj/item/clothing/head/frelancer
 	glasses = /obj/item/clothing/glasses/hud/health
@@ -131,7 +131,7 @@
 	ears = /obj/item/radio/headset/distress/dutch
 	w_uniform = /obj/item/clothing/under/marine/veteran/freelancer
 	shoes = /obj/item/clothing/shoes/marine
-	wear_suit = /obj/item/clothing/suit/storage/faction/freelancer
+	wear_suit = /obj/item/clothing/suit/attachment/faction/freelancer
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC
 	head = /obj/item/clothing/head/frelancer/beret
 	glasses = /obj/item/clothing/glasses/hud/health

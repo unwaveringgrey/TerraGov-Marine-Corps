@@ -39,7 +39,7 @@
 /obj/structure/closet/secure_closet/guncabinet/canterbury/PopulateContents()
 	new /obj/item/weapon/gun/shotgun/combat(src)
 	new /obj/item/ammo_magazine/shotgun(src)
-	new /obj/item/clothing/suit/storage/marine/smartgunner/fancy(src)
+	new /obj/item/clothing/suit/attachment/marine/smartgunner/fancy(src)
 	new /obj/item/weapon/gun/smartgun(src)
 	new /obj/item/smartgun_powerpack/fancy(src)
 	new /obj/item/weapon/gun/flamer(src)

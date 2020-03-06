@@ -21,7 +21,7 @@
 	ears = /obj/item/radio/headset/distress/wolves
 	w_uniform = /obj/item/clothing/under/marine/veteran/UPP
 	shoes = /obj/item/clothing/shoes/marine
-	wear_suit = /obj/item/clothing/suit/storage/faction/UPP/commando
+	wear_suit = /obj/item/clothing/suit/attachment/faction/UPP/commando
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC
 	head = /obj/item/clothing/head/uppcap
 	mask = /obj/item/clothing/mask/gas/PMC/upp
@@ -74,7 +74,7 @@
 	ears = /obj/item/radio/headset/distress/wolves
 	w_uniform = /obj/item/clothing/under/marine/veteran/UPP/medic
 	shoes = /obj/item/clothing/shoes/marine
-	wear_suit = /obj/item/clothing/suit/storage/faction/UPP/commando
+	wear_suit = /obj/item/clothing/suit/attachment/faction/UPP/commando
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC
 	head = /obj/item/clothing/head/uppcap
 	mask = /obj/item/clothing/mask/gas/PMC/upp
@@ -131,7 +131,7 @@
 	ears = /obj/item/radio/headset/distress/wolves
 	w_uniform = /obj/item/clothing/under/marine/veteran/UPP
 	shoes = /obj/item/clothing/shoes/marine
-	wear_suit = /obj/item/clothing/suit/storage/faction/UPP/commando
+	wear_suit = /obj/item/clothing/suit/attachment/faction/UPP/commando
 	gloves = /obj/item/clothing/gloves/marine/veteran/PMC
 	head = /obj/item/clothing/head/uppcap/beret
 	mask = /obj/item/clothing/mask/gas/PMC/upp

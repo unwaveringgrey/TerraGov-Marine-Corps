@@ -19,7 +19,7 @@
 
 /obj/item/storage/pouch/examine(mob/user)
 	..()
-	to_chat(user, "Can be worn by attaching it to a pocket.")
+	to_chat(user, "Can be worn by attaching it to a pocket or to armor. Larger pouches may only be attached to armor.")
 
 
 /obj/item/storage/pouch/equipped(mob/user, slot)
@@ -106,13 +106,13 @@
 	new /obj/item/stack/sheet/plasteel(src, 15)
 	new /obj/item/tool/weldingtool(src)
 
-/obj/item/storage/pouch/on_suit_attached(obj/item/clothing/suit/storage/S, mob/user)
+/obj/item/storage/pouch/on_suit_attached(obj/item/clothing/suit/attachment/S, mob/user)
 	..()
-	has_suit.verbs += /obj/item/clothing/suit/storage/verb/toggle_draw_mode
+	has_suit.verbs += /obj/item/clothing/suit/attachment/proc/toggle_draw_mode
 
 /obj/item/storage/pouch/on_suit_removed()
+	has_suit.verbs -= /obj/item/clothing/suit/attachment/proc/toggle_draw_mode
 	..()
-	has_suit.verbs -= /obj/item/clothing/suit/storage/verb/toggle_draw_mode
 
 /obj/item/storage/pouch/firstaid
 	name = "first-aid pouch"
@@ -540,3 +540,5 @@
 
 	else
 		return ..()
+
+

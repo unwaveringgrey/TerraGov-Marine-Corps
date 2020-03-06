@@ -294,9 +294,16 @@
 	return ..()
 
 /obj/item/clothing/suit/storage/store_in_cryo(list/items, nullspace_it = TRUE)
+	for(var/O in pockets)
+		var/obj/item/I = O
+		pockets.remove_from_storage(I, loc)
+		items = I.store_in_cryo(items)
+	return ..()
+
+/obj/item/clothing/suit/attachment/store_in_cryo(list/items, nullspace_it = TRUE)
 	if(has_attachment)
 		items = has_attachment.store_in_cryo(items, nullspace_it = TRUE)
-		remove_storage()
+		remove_attachment()
 	return ..()
 
 /obj/item/clothing/under/store_in_cryo(list/items, nullspace_it = TRUE)

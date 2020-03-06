@@ -373,9 +373,14 @@
 			var/obj/item/storage/S = back
 			S.handle_item_insertion(W, TRUE, src)
 		if(SLOT_IN_SUIT)
-			var/obj/item/clothing/suit/storage/marine/A = wear_suit
-			if(A && A.has_attachment)
+			var/obj/item/clothing/suit/attachment/A = wear_suit
+			if(istype(A) && A.has_attachment)
 				var/obj/item/storage/T = A.has_attachment
+				T.handle_item_insertion(W, FALSE)
+				T.close(src)
+			var/obj/item/clothing/suit/storage/S = wear_suit
+			if(istype(S) && S.pockets)
+				var/obj/item/storage/internal/T = S.pockets
 				T.handle_item_insertion(W, FALSE)
 				T.close(src)
 		if(SLOT_IN_BELT)

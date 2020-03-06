@@ -92,7 +92,7 @@ Make the TGMC proud!"})
 	belt = /obj/item/storage/belt/gun/m4a3/fieldcommander/
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/exec
-	wear_suit = /obj/item/clothing/suit/storage/marine/smartgunner/fancy
+	wear_suit = /obj/item/clothing/suit/attachment/marine/smartgunner/fancy
 	shoes = /obj/item/clothing/shoes/marine
 	gloves = /obj/item/clothing/gloves/marine/officer
 	head = /obj/item/clothing/head/tgmcberet/fc
@@ -212,7 +212,7 @@ You could use MTs help to repair and replace hardpoints."})
 	belt = /obj/item/storage/belt/gun/m4a3/vp70
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/tanker
-	wear_suit = /obj/item/clothing/suit/storage/marine/M3P/tanker
+	wear_suit = /obj/item/clothing/suit/attachment/marine/M3P/tanker
 	shoes = /obj/item/clothing/shoes/marine
 	gloves = /obj/item/clothing/gloves/yellow
 	head = /obj/item/clothing/head/helmet/marine/tanker
@@ -259,7 +259,7 @@ In addition, you are tasked with the security of high-ranking personnel, includi
 	belt = /obj/item/storage/belt/security/MP/full
 	ears = /obj/item/radio/headset/mainship/mmpo
 	w_uniform = /obj/item/clothing/under/marine/mp
-	wear_suit = /obj/item/clothing/suit/storage/marine/MP
+	wear_suit = /obj/item/clothing/suit/attachment/marine/MP
 	shoes = /obj/item/clothing/shoes/marine
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
 	gloves = /obj/item/clothing/gloves/black
@@ -303,7 +303,7 @@ In addition, you are tasked with the security of high-ranking personnel, includi
 	belt = /obj/item/storage/belt/security/MP/full
 	ears = /obj/item/radio/headset/mainship/cmpcom
 	w_uniform = /obj/item/clothing/under/marine/officer/warrant
-	wear_suit = /obj/item/clothing/suit/storage/marine/MP
+	wear_suit = /obj/item/clothing/suit/attachment/marine/MP
 	shoes = /obj/item/clothing/shoes/marine
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
 	gloves = /obj/item/clothing/gloves/black
@@ -353,7 +353,7 @@ You are also next in the chain of command, should the bridge crew fall in the li
 	belt = /obj/item/storage/belt/utility/full
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/ce
-	wear_suit = /obj/item/clothing/suit/storage/marine/MP
+	wear_suit = /obj/item/clothing/suit/attachment/marine/MP
 	shoes = /obj/item/clothing/shoes/marine
 	glasses = /obj/item/clothing/glasses/welding/superior
 	gloves = /obj/item/clothing/gloves/yellow
@@ -393,7 +393,7 @@ requisitions line and later on to be ready to send supplies for marines who are 
 	belt = /obj/item/storage/belt/utility/full
 	ears = /obj/item/radio/headset/mainship/st
 	w_uniform = /obj/item/clothing/under/marine/officer/engi
-	wear_suit = /obj/item/clothing/suit/storage/marine/MP
+	wear_suit = /obj/item/clothing/suit/attachment/marine/MP
 	shoes = /obj/item/clothing/shoes/marine
 	gloves = /obj/item/clothing/gloves/yellow
 	glasses = /obj/item/clothing/glasses/welding/flipped
@@ -445,7 +445,7 @@ A happy ship is a well-functioning ship."})
 	belt = /obj/item/storage/belt/gun/m44/full
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/rank/ro_suit
-	wear_suit = /obj/item/clothing/suit/storage/marine/MP
+	wear_suit = /obj/item/clothing/suit/attachment/marine/MP
 	shoes = /obj/item/clothing/shoes/marine
 	gloves = /obj/item/clothing/gloves/yellow
 	head = /obj/item/clothing/head/tgmccap/req

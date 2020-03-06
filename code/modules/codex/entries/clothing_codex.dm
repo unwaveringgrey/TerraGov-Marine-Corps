@@ -136,7 +136,17 @@ GLOBAL_LIST_INIT(string_equip_flags, list("suit slot" = ITEM_SLOT_OCLOTHING,
 
 /obj/item/clothing/suit/storage/get_mechanics_info()
 	. = ..()
-	 . += "<br><br>This item has the ability to attach any pouch, as well as melee weapon scabbards."
+	. += "<br><br>This item has an internal inventory of [pockets.storage_slots] slots."
+	. += "<br>It can carry weight [pockets.max_w_class] things or lighter."
+	if(length(pockets.bypass_w_limit))
+		. += "<br><U>You can also carry the following special items in this internal inventory</U>:"
+		for(var/X in pockets.bypass_w_limit)
+			var/obj/B = X
+			. += "<br>[initial(B.name)]"
+
+/obj/item/clothing/suit/attachment/get_mechanics_info()
+	. = ..()
+	 . += "<br><br>This item has the ability to attach any pouch, as well as melee weapon scabbards & motion detectors."
 
 /obj/item/clothing/suit/armor/pcarrier/get_mechanics_info()
 	. = ..()

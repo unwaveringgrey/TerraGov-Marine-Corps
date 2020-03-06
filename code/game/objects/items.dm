@@ -511,14 +511,18 @@
 				if(S.can_be_inserted(src, warning))
 					return TRUE
 			if(SLOT_IN_SUIT)
-				var/obj/item/clothing/suit/storage/S = H.wear_suit
-				if(!istype(S) || !S.has_attachment)
-					return FALSE
-				var/obj/item/storage/T = S.has_attachment
-				if(!istype(T))
-					return FALSE
-				if(T.can_be_inserted(src, warning))
-					return TRUE
+				var/obj/item/clothing/suit/attachment/A = H.wear_suit//check for this kind of suit
+				if(istype(A) && A.has_attachment)
+					var/obj/item/storage/T = A.has_attachment
+					if(!istype(T))
+						return FALSE
+					if(T.can_be_inserted(src, warning))
+						return TRUE
+				var/obj/item/clothing/suit/storage/S = H.wear_suit//Then check for this kind of suit
+				if(istype(S) && S.pockets)
+					var/obj/item/storage/internal/T = S.pockets
+					if(T.can_be_inserted(src, warning))
+						return TRUE
 			if(SLOT_IN_HEAD)
 				var/obj/item/clothing/head/helmet/marine/S = H.head
 				if(!istype(S) || !S.pockets)

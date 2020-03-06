@@ -40,7 +40,7 @@
 	jobtype = /datum/job/imperial/guardsman
 
 	belt = /obj/item/storage/belt/marine
-	wear_suit = /obj/item/clothing/suit/storage/marine/imperial
+	wear_suit = /obj/item/clothing/suit/attachment/marine/imperial
 	head = /obj/item/clothing/head/helmet/marine/imperial
 	r_store = /obj/item/storage/pouch/firstaid/full
 	l_store = /obj/item/storage/pouch/flare/full
@@ -80,7 +80,7 @@
 	jobtype = /datum/job/imperial/guardsman/sergeant
 
 	belt = /obj/item/storage/belt/marine
-	wear_suit = /obj/item/clothing/suit/storage/marine/imperial/sergeant
+	wear_suit = /obj/item/clothing/suit/attachment/marine/imperial/sergeant
 	head = /obj/item/clothing/head/helmet/marine/imperial/sergeant
 	r_store = /obj/item/storage/pouch/explosive/upp
 	l_store = /obj/item/storage/pouch/field_pouch/full
@@ -121,7 +121,7 @@
 	jobtype = /datum/job/imperial/guardsman/medicae
 
 	belt = /obj/item/storage/belt/combatLifesaver
-	wear_suit = /obj/item/clothing/suit/storage/marine/imperial/medicae
+	wear_suit = /obj/item/clothing/suit/attachment/marine/imperial/medicae
 	head = /obj/item/clothing/head/helmet/marine/imperial
 	glasses = /obj/item/clothing/glasses/hud/health
 	l_store = /obj/item/storage/pouch/medkit

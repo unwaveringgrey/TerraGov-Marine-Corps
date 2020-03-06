@@ -21,7 +21,7 @@
 	ears = /obj/item/radio/headset/distress/dutch
 	w_uniform = /obj/item/clothing/under/colonist
 	shoes = /obj/item/clothing/shoes/black
-	wear_suit = /obj/item/clothing/suit/storage/militia
+	wear_suit = /obj/item/clothing/suit/attachment/militia
 	gloves = /obj/item/clothing/gloves/black
 	suit_store = /obj/item/weapon/gun/smg/uzi
 	r_store = /obj/item/storage/pouch/general
@@ -67,7 +67,7 @@
 	ears = /obj/item/radio/headset/distress/dutch
 	w_uniform = /obj/item/clothing/under/colonist
 	shoes = /obj/item/clothing/shoes/black
-	wear_suit = /obj/item/clothing/suit/storage/militia
+	wear_suit = /obj/item/clothing/suit/attachment/militia
 	gloves = /obj/item/clothing/gloves/black
 	glasses = /obj/item/clothing/glasses/hud/health
 	suit_store = /obj/item/weapon/gun/smg/skorpion/upp
@@ -115,7 +115,7 @@
 	ears = /obj/item/radio/headset/distress/dutch
 	w_uniform = /obj/item/clothing/under/colonist
 	shoes = /obj/item/clothing/shoes/black
-	wear_suit = /obj/item/clothing/suit/storage/militia
+	wear_suit = /obj/item/clothing/suit/attachment/militia
 	gloves = /obj/item/clothing/gloves/black
 	head = /obj/item/clothing/head/militia
 	glasses = /obj/item/clothing/glasses/hud/health

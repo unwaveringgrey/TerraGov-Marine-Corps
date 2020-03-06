@@ -23033,7 +23033,7 @@
 /obj/structure/closet/secure_closet/securecom,
 /obj/item/weapon/gun/smartgun,
 /obj/item/smartgun_powerpack/fancy,
-/obj/item/clothing/suit/storage/marine/smartgunner/fancy,
+/obj/item/clothing/attachment/marine/smartgunner/fancy,
 /turf/open/floor{
 	icon_state = "red";
 	dir = 9

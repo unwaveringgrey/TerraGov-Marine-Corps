@@ -120,7 +120,7 @@ GLOBAL_LIST_INIT(vending_white_items, typecacheof(list(
 	/obj/item/clothing/shoes/marine,
 	/obj/item/clothing/under/marine,
 	/obj/item/storage/backpack/marine/satchel,
-	/obj/item/clothing/suit/storage/marine,
+	/obj/item/clothing/suit/attachment/marine,
 	/obj/item/storage/belt/marine,
 	/obj/item/storage/pouch/flare,
 	/obj/item/storage/pouch/firstaid

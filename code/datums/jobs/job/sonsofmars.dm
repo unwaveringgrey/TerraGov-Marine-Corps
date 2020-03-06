@@ -27,7 +27,7 @@
 	ears = /obj/item/radio/headset/distress/som
 	w_uniform = /obj/item/clothing/under/som
 	shoes = /obj/item/clothing/shoes/marine/som
-	wear_suit = /obj/item/clothing/suit/storage/marine/som
+	wear_suit = /obj/item/clothing/suit/attachment/marine/som
 	gloves = /obj/item/clothing/gloves/marine/som
 	head = /obj/item/clothing/head/helmet/marine/som
 	suit_store = /obj/item/weapon/gun/rifle/ak47
@@ -86,7 +86,7 @@
 	ears = /obj/item/radio/headset/distress/som
 	w_uniform = /obj/item/clothing/under/som/medic
 	shoes = /obj/item/clothing/shoes/marine/som
-	wear_suit = /obj/item/clothing/suit/storage/marine/som
+	wear_suit = /obj/item/clothing/suit/attachment/marine/som
 	gloves = /obj/item/clothing/gloves/marine/som
 	head = /obj/item/clothing/head/helmet/marine/som
 	glasses = /obj/item/clothing/glasses/hud/health
@@ -143,7 +143,7 @@
 	ears = /obj/item/radio/headset/distress/som
 	w_uniform = /obj/item/clothing/under/som/veteran
 	shoes = /obj/item/clothing/shoes/marine/som
-	wear_suit = /obj/item/clothing/suit/storage/marine/som/veteran
+	wear_suit = /obj/item/clothing/suit/attachment/marine/som/veteran
 	gloves = /obj/item/clothing/gloves/marine/som/veteran
 	head = /obj/item/clothing/head/helmet/marine/som/veteran
 	glasses = /obj/item/clothing/glasses/hud/health
@@ -201,7 +201,7 @@
 	ears = /obj/item/radio/headset/distress/som
 	w_uniform = /obj/item/clothing/under/som/leader
 	shoes = /obj/item/clothing/shoes/marine/som
-	wear_suit = /obj/item/clothing/suit/storage/marine/som/leader
+	wear_suit = /obj/item/clothing/suit/attachment/marine/som/leader
 	gloves = /obj/item/clothing/gloves/marine/som/veteran
 	head = /obj/item/clothing/head/helmet/marine/som/leader
 	glasses = /obj/item/clothing/glasses/hud/health

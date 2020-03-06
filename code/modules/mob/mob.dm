@@ -319,15 +319,26 @@
 		S.remove_from_storage(W)
 		put_in_hands(W)
 		return TRUE
-	else if(istype(I, /obj/item/clothing/suit/storage))
-		var/obj/item/clothing/suit/storage/S = I
+	else if(istype(I, /obj/item/clothing/suit/attachment))
+		var/obj/item/clothing/suit/attachment/S = I
 		if(!S.has_attachment)
 			return FALSE
 		var/obj/item/storage/A = S.has_attachment
-		if(!istype(A))
+		if(!istype(A) || !length(A.contents))
 			return FALSE
 		var/obj/item/W = A.contents[length(A.contents)]
 		A.remove_from_storage(W)
+		put_in_hands(W)
+		return TRUE
+	else if(istype(I, /obj/item/clothing/suit/storage))
+		var/obj/item/clothing/suit/storage/S = I
+		if(!S.pockets)
+			return FALSE
+		var/obj/item/storage/internal/P = S.pockets
+		if(!length(P.contents))
+			return FALSE
+		var/obj/item/W = P.contents[length(P.contents)]
+		P.remove_from_storage(W)
 		put_in_hands(W)
 		return TRUE
 	else if(istype(I, /obj/item/storage))

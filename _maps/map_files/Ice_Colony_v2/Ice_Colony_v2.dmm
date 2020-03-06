@@ -18913,7 +18913,7 @@
 /obj/item/clothing/head/helmet/marine/veteran/PMC,
 /obj/item/clothing/gloves/marine/veteran/PMC,
 /obj/item/clothing/mask/gas/PMC/damaged,
-/obj/item/clothing/suit/storage/marine/veteran/PMC,
+/obj/item/clothing/suit/attachment/marine/veteran/PMC,
 /obj/item/weapon/gun/smg/m39/elite,
 /turf/open/floor/tile/dark/red2{
 	dir = 9

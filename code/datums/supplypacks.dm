@@ -2015,11 +2015,11 @@ ARMOR
 					/obj/item/clothing/head/helmet/marine/standard,
 					/obj/item/clothing/head/helmet/marine/standard,
 					/obj/item/clothing/head/helmet/marine/standard,
-					/obj/item/clothing/suit/storage/marine,
-					/obj/item/clothing/suit/storage/marine,
-					/obj/item/clothing/suit/storage/marine,
-					/obj/item/clothing/suit/storage/marine,
-					/obj/item/clothing/suit/storage/marine
+					/obj/item/clothing/suit/attachment/marine,
+					/obj/item/clothing/suit/attachment/marine,
+					/obj/item/clothing/suit/attachment/marine,
+					/obj/item/clothing/suit/attachment/marine,
+					/obj/item/clothing/suit/attachment/marine
 					)
 	cost = RO_PRICE_VERY_CHEAP
 	containertype = /obj/structure/closet/crate
@@ -2030,7 +2030,7 @@ ARMOR
 	name = "M3 pattern squad leader crate (x1 helmet, x1 armor)"
 	contains = list(
 					/obj/item/clothing/head/helmet/marine/leader,
-					/obj/item/clothing/suit/storage/marine/leader
+					/obj/item/clothing/suit/attachment/marine/leader
 					)
 	cost = RO_PRICE_VERY_CHEAP
 	containertype = /obj/structure/closet/crate

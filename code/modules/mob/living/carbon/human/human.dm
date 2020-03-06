@@ -1024,6 +1024,10 @@
 			var/obj/item/clothing/suit/storage/S = wear_suit
 			S.turn_off_light(src)
 			light_off++
+		if(istype(wear_suit, /obj/item/clothing/suit/attachment))
+			var/obj/item/clothing/suit/attachment/S = wear_suit
+			S.turn_off_light(src)
+			light_off++
 	if(guns)
 		for(var/obj/item/weapon/gun/lit_gun in contents)
 			if(!isattachmentflashlight(lit_gun.rail))
