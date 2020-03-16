@@ -220,10 +220,8 @@
 	master_item.update_action_button_icons()
 
 /obj/item/storage/internal/attachment/can_be_inserted(src, warning)
-	to_chat(usr, "can_be_inserted outer")
 	if(attachedItem && istype(attachedItem, /obj/item/storage))
 		var/obj/item/storage/S = attachedItem
-		to_chat(usr, "can_be_inserted inner")
 		return S.can_be_inserted(src, warning)
 	. = ..()
 
