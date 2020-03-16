@@ -517,9 +517,14 @@
 				var/obj/item/clothing/suit/storage/S = H.wear_suit
 				if(!istype(S) || !S.pockets)
 					return FALSE
-				var/obj/item/storage/internal/T = S.pockets
-				if(T.can_be_inserted(src, warning))
-					return TRUE
+				if(istype(S.pockets, /obj/item/storage/internal/attachment))
+					var/obj/item/storage/internal/attachment/T = S.pockets
+					if(T.can_be_inserted(src, warning))
+						return TRUE
+				else if(istype(S.pockets, /obj/item/storage/internal))
+					var/obj/item/storage/internal/T = S.pockets
+					if(T.can_be_inserted(src, warning))
+						return TRUE
 			if(SLOT_IN_HEAD)
 				var/obj/item/clothing/head/helmet/marine/S = H.head
 				if(!istype(S) || !S.pockets)

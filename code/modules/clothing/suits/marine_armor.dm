@@ -32,22 +32,32 @@
 	w_class = WEIGHT_CLASS_HUGE
 	time_to_unequip = 2 SECONDS
 	time_to_equip = 2 SECONDS
-	pockets = /obj/item/storage/internal/suit/marine
+	pockets = /obj/item/storage/internal/attachment/suit/marine
 	flags_item_map_variant = (ITEM_JUNGLE_VARIANT|ITEM_ICE_VARIANT|ITEM_PRISON_VARIANT)
 
-/obj/item/storage/internal/suit/marine
-	bypass_w_limit = list(
-		/obj/item/ammo_magazine/rifle,
-		/obj/item/ammo_magazine/smg,
-		/obj/item/ammo_magazine/sniper,
-		/obj/item/cell/lasgun
-	)
-	max_storage_space = 6
+/obj/item/storage/internal/attachment/suit/marine
+
+
+/obj/item/clothing/suit/storage/marine/verb/removeattachment()
+	set name = "Remove Attachment"
+	set category = "Object"
+	set src in usr
+	if(!isliving(usr))
+		return
+	if(usr.stat) return
+	
+	var/obj/item/storage/internal/attachment/P = pockets
+	if(istype(P))
+		P.remove_storage(usr)
+
+/obj/item/clothing/suit/storage/marine/verb/toggle_draw_mode()
+	pockets.toggle_draw_mode()
 
 /obj/item/clothing/suit/storage/marine/Initialize()
 	. = ..()
-	armor_overlays = list("lamp") //Just one for now, can add more later.
+	armor_overlays = list("lamp", "attachment") //Just one for now, can add more later.
 	update_icon()
+	verbs -= /obj/item/clothing/suit/storage/marine/verb/toggle_draw_mode
 
 /obj/item/clothing/suit/storage/marine/update_icon(mob/user)
 	var/image/I
@@ -61,7 +71,6 @@
 	else
 		armor_overlays["lamp"] = null
 	user?.update_inv_wear_suit()
-
 
 /obj/item/clothing/suit/storage/marine/dropped(mob/user)
 	if(loc != user)
@@ -163,7 +172,6 @@
 	armor = list("melee" = 55, "bullet" = 55, "laser" = 45, "energy" = 40, "bomb" = 40, "bio" = 40, "rad" = 15, "fire" = 40, "acid" = 40)
 	slowdown = SLOWDOWN_ARMOR_LIGHT
 	brightness_on = 8
-	pockets = /obj/item/storage/internal/suit/leader
 
 /obj/item/storage/internal/suit/leader
 	storage_slots = 3
@@ -366,6 +374,7 @@
 	flags_heat_protection =CHEST|GROIN|ARMS|LEGS|FEET|HANDS
 	armor = list("melee" = 70, "bullet" = 70, "laser" = 50, "energy" = 60, "bomb" = 50, "bio" = 10, "rad" = 10, "fire" = 60, "acid" = 60)
 	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
+	pockets = /obj/item/storage/internal/suit
 
 /obj/item/clothing/suit/storage/marine/veteran/dutch
 	name = "\improper D2 armored vest"
@@ -376,7 +385,7 @@
 	flags_heat_protection =CHEST|GROIN|ARMS|LEGS|FEET|HANDS
 	armor = list("melee" = 70, "bullet" = 85, "laser" = 55, "energy" = 65, "bomb" = 70, "bio" = 10, "rad" = 10, "fire" = 65, "acid" = 65)
 	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
-
+	pockets = /obj/item/storage/internal/suit
 
 //===========================//I.o.M\\================================
 
@@ -386,6 +395,7 @@
 	icon_state = "guardarmor"
 	item_state = "guardarmor"
 	armor = list("melee" = 75, "bullet" = 65, "laser" = 60, "energy" = 60, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 60, "acid" = 60)
+	pockets = /obj/item/storage/internal/suit
 
 /obj/item/clothing/suit/storage/marine/imperial/sergeant
 	// SL armour, better than flak, covers more
@@ -406,6 +416,7 @@
 	desc = "An armour worn by the medicae of the Imperial Guard."
 	icon_state = "guardmedicarmor"
 	item_state = "guardmedicarmor"
+	pockets = /obj/item/storage/internal/suit
 
 /obj/item/clothing/suit/storage/marine/imperial/sergeant/veteran
 	name = "\improper Imperial Guard carapace armour"
@@ -438,6 +449,7 @@
 	icon_state = "commissar_coat"
 	item_state = "commissar_coat"
 	armor = list("melee" = 75, "bullet" = 60, "laser" = 55, "energy" = 40, "bomb" = 45, "bio" = 15, "rad" = 15, "fire" = 40, "acid" = 40)
+	pockets = /obj/item/storage/internal/suit/imperial
 
 //===========================//U.P.P\\================================
 
@@ -537,6 +549,7 @@
 	slowdown = SLOWDOWN_ARMOR_HEAVY
 	flags_armor_protection = CHEST|GROIN
 	armor = list("melee" = 85, "bullet" = 85, "laser" = 50, "energy" = 60, "bomb" = 60, "bio" = 10, "rad" = 10, "fire" = 60, "acid" = 60)
+	pockets = /obj/item/storage/internal/suit
 
 //===========================FREELANCER================================
 
@@ -615,6 +628,7 @@
 		/obj/item/storage/bible,
 		/obj/item/weapon/claymore/mercsword/machete,
 		/obj/item/weapon/combat_knife)
+	pockets = /obj/item/storage/internal/suit
 
 /obj/item/clothing/suit/storage/marine/veteran/mercenary/miner
 	name = "\improper Y8 armored miner vest"
@@ -634,6 +648,7 @@
 		/obj/item/storage/bible,
 		/obj/item/weapon/claymore/mercsword/machete,
 		/obj/item/weapon/combat_knife)
+	pockets = /obj/item/storage/internal/suit
 
 /obj/item/clothing/suit/storage/marine/veteran/mercenary/engineer
 	name = "\improper Z7 armored engineer vest"
@@ -653,8 +668,7 @@
 		/obj/item/storage/bible,
 		/obj/item/weapon/claymore/mercsword/machete,
 		/obj/item/weapon/combat_knife)
-
-
+	pockets = /obj/item/storage/internal/suit
 
 /obj/item/clothing/suit/storage/marine/som
 	name = "\improper S12 hauberk"
@@ -665,7 +679,7 @@
 	flags_armor_protection = CHEST|GROIN
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 30, "energy" = 30, "bomb" = 30, "bio" = 5, "rad" = 5, "fire" = 30, "acid" = 30)
 	flags_item_map_variant = NONE
-
+	pockets = /obj/item/storage/internal/suit
 
 /obj/item/clothing/suit/storage/marine/som/veteran
 	name = "\improper S12 combat Hauberk"
@@ -675,7 +689,7 @@
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 	flags_armor_protection = CHEST|GROIN|ARMS|LEGS
 	armor = list("melee" = 40, "bullet" = 40, "laser" = 30, "energy" = 40, "bomb" = 30, "bio" = 10, "rad" = 10, "fire" = 40, "acid" = 40)
-
+	pockets = /obj/item/storage/internal/suit
 
 /obj/item/clothing/suit/storage/marine/som/leader
 	name = "\improper S13 leader hauberk"
@@ -685,3 +699,4 @@
 	slowdown = SLOWDOWN_ARMOR_MEDIUM
 	flags_armor_protection = CHEST|GROIN|ARMS|LEGS
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 40, "energy" = 50, "bomb" = 40, "bio" = 15, "rad" = 15, "fire" = 50, "acid" = 50)
+	pockets = /obj/item/storage/internal/suit/leader

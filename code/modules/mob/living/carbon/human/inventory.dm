@@ -375,7 +375,7 @@
 		if(SLOT_IN_SUIT)
 			var/obj/item/clothing/suit/storage/S = wear_suit
 			var/obj/item/storage/internal/T = S.pockets
-			T.handle_item_insertion(W, FALSE)
+			T.handle_item_insertion(W, FALSE, src)
 			T.close(src)
 		if(SLOT_IN_BELT)
 			var/obj/item/storage/belt/S = belt

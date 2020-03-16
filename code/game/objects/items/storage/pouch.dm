@@ -176,7 +176,7 @@
 	desc = "It can contain ammo magazines."
 	icon_state = "medium_ammo_mag"
 	max_w_class = 3
-	storage_slots = 2
+	storage_slots = 3
 	draw_mode = 0
 	can_hold = list(
 		/obj/item/ammo_magazine/rifle,
@@ -190,7 +190,9 @@
 /obj/item/storage/pouch/magazine/large
 	name = "large magazine pouch"
 	icon_state = "large_ammo_mag"
-	storage_slots = 3
+	storage_slots = 5
+	max_storage_space = 15
+	flags_equip_slot = ITEM_SLOT_DENYPOCKET
 
 
 
@@ -199,7 +201,7 @@
 	desc = "It can contain pistol and revolver ammo magazines."
 	max_w_class = 2
 	icon_state = "pistol_mag"
-	storage_slots = 3
+	storage_slots = 4
 
 	can_hold = list(
 		/obj/item/ammo_magazine/pistol,
@@ -209,6 +211,7 @@
 	name = "large pistol magazine pouch"
 	storage_slots = 6
 	icon_state = "large_pistol_mag"
+	flags_equip_slot = ITEM_SLOT_DENYPOCKET
 
 /obj/item/storage/pouch/magazine/pistol/large/full
 	fill_type = /obj/item/ammo_magazine/pistol
@@ -216,7 +219,7 @@
 
 /obj/item/storage/pouch/magazine/pistol/pmc_mateba
 	fill_type = /obj/item/ammo_magazine/revolver/mateba
-	fill_number = 3
+	fill_number = 4
 
 /obj/item/storage/pouch/magazine/pistol/large/mateba
 	fill_type = /obj/item/ammo_magazine/revolver/mateba
@@ -224,43 +227,43 @@
 
 /obj/item/storage/pouch/magazine/pistol/vp70
 	fill_type = /obj/item/ammo_magazine/pistol/vp70
-	fill_number = 3
+	fill_number = 4
 
 /obj/item/storage/pouch/magazine/pistol/pmc_vp78
 	fill_type = /obj/item/ammo_magazine/pistol/vp78
-	fill_number = 3
+	fill_number = 4
 
 /obj/item/storage/pouch/magazine/upp
 	fill_type = /obj/item/ammo_magazine/rifle/type71
-	fill_number = 2
+	fill_number = 3
 
 /obj/item/storage/pouch/magazine/large/upp
 	fill_type = /obj/item/ammo_magazine/rifle/type71
-	fill_number = 3
+	fill_number = 5
 
 /obj/item/storage/pouch/magazine/upp_smg
 	fill_type = /obj/item/ammo_magazine/smg/skorpion
-	fill_number = 2
+	fill_number = 3
 
 /obj/item/storage/pouch/magazine/large/pmc_m39
 	fill_type = /obj/item/ammo_magazine/smg/m39/ap
-	fill_number = 3
+	fill_number = 5
 
 /obj/item/storage/pouch/magazine/large/pmc_p90
 	fill_type = /obj/item/ammo_magazine/smg/p90
-	fill_number = 3
+	fill_number = 5
 
 /obj/item/storage/pouch/magazine/large/pmc_lmg
 	fill_type = /obj/item/ammo_magazine/standard_lmg
-	fill_number = 3
+	fill_number = 5
 
 /obj/item/storage/pouch/magazine/large/pmc_sniper
 	fill_type = /obj/item/ammo_magazine/sniper/elite
-	fill_number = 3
+	fill_number = 5
 
 /obj/item/storage/pouch/magazine/large/pmc_rifle
 	fill_type = /obj/item/ammo_magazine/rifle/ap
-	fill_number = 3
+	fill_number = 5
 
 
 
@@ -340,6 +343,7 @@
 	desc = "It's specifically made to hold a medkit."
 	can_hold = list(/obj/item/storage/firstaid)
 	bypass_w_limit = list(/obj/item/storage/firstaid)
+	flags_equip_slot = ITEM_SLOT_DENYPOCKET
 
 
 /obj/item/storage/pouch/medkit/full
@@ -426,6 +430,7 @@
 		/obj/item/binoculars,
 		/obj/item/map/current_map,
 		/obj/item/squad_beacon)
+	flags_equip_slot = ITEM_SLOT_DENYPOCKET
 
 /obj/item/storage/pouch/field_pouch/full/Initialize()
 	. = ..()

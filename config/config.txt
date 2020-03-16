@@ -4,13 +4,13 @@
 $include dbconfig.txt
 
 ## Server name: This appears at the top of the screen in-game.
-SERVER_NAME Something
+SERVER_NAME Grey TGMC Dev Server
 
 ## Hosted by name for unix platforms.
-HOSTEDBY yournamehere
+HOSTEDBY UnwaveringGrey
 
 ## The title of the main window.
-TITLE Change Me
+TITLE Grey TGMC Dev Server
 
 ## Optional URL for faster resource downloading.
 #RESOURCE_URL url

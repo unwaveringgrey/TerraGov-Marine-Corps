@@ -126,3 +126,125 @@
 //things to do when an item is removed in the obj's internal pocket
 /obj/item/proc/on_pocket_removal()
 	return
+
+//A type of internal storage that can store a single other item. It allows it to be accessed as if it wasn't stored.
+//This is mainly meant to allow for attaching items to items
+/obj/item/storage/internal/attachment
+	storage_slots = 1
+	max_w_class = 6
+	max_storage_space = 6
+	var/image/attachment_icon = null
+	var/obj/item/attachedItem = null
+	var/list/attachmentsAllowed = list(
+		/obj/item/storage/pouch,
+		/obj/item/storage/large_holster/machete,
+		/obj/item/storage/large_holster/katana,
+		/obj/item/storage/large_holster/m39,
+		/obj/item/motiondetector)
+	bypass_w_limit = list(
+		/obj/item/storage/pouch,
+		/obj/item/storage/large_holster/machete,
+		/obj/item/storage/large_holster/katana,
+		/obj/item/storage/large_holster/m39,
+		/obj/item/motiondetector)
+
+/obj/item/storage/internal/attachment/handle_attack_hand(mob/living/user)
+	if(!attachedItem && master_item.loc == user)
+		to_chat(usr, "\the [master_item] has nothing attached to it.")
+	. = ..()
+	//if(.)
+	updateAttachmentIcon()
+
+/obj/item/storage/internal/attachment/open(mob/living/user)
+	if(istype(attachedItem, /obj/item/storage))
+		//we can't just call attack_hand here because the storage attack_hand proc checks that loc == user
+		var/obj/item/storage/O = attachedItem
+		if(O.draw_mode && ishuman(user) && O.contents.len)
+			var/obj/item/I = O.contents[O.contents.len]
+			I.attack_hand(user)
+		else
+			O.open(user)
+	else if(istype(attachedItem, /obj/item/motiondetector))
+		var/obj/item/motiondetector/MD = attachedItem
+		MD.interact(user)
+	return 1
+
+/obj/item/storage/internal/attachment/attackby(obj/item/I, mob/living/user)
+	if(attachedItem)
+		attachedItem.attackby(I, user)
+		updateAttachmentIcon()
+	else
+		if(!is_type_in_list(I, src.attachmentsAllowed))
+			to_chat(user, "\the [master_item] cannot attach \the [I].")
+			return 0
+		. = ..()
+		if(.)
+			attachedItem = I
+			updateAttachmentIcon()
+			var/obj/item/storage/O = I
+			if(istype(O))
+				master_item.verbs += /obj/item/clothing/suit/storage/marine/verb/toggle_draw_mode
+
+/obj/item/storage/internal/attachment/toggle_draw_mode()
+	var/obj/item/storage/O = attachedItem
+	if(istype(O))
+		O.toggle_draw_mode()
+
+/obj/item/storage/internal/attachment/proc/removeAttachment(mob/living/user)
+	master_item.verbs -= /obj/item/clothing/suit/storage/marine/verb/toggle_draw_mode
+
+/obj/item/storage/internal/attachment/proc/remove_storage(mob/user)
+	if(!attachedItem)
+		return
+	if(user)
+		user.put_in_hands(attachedItem)
+	var/obj/item/storage/O = attachedItem
+	if(istype(O))
+		master_item.verbs -= /obj/item/clothing/suit/storage/marine/verb/toggle_draw_mode
+	attachedItem = null
+	updateAttachmentIcon()
+
+/obj/item/storage/internal/attachment/proc/updateAttachmentIcon()
+	if(attachment_icon != null && (!attachedItem || attachment_icon.icon_state != attachedItem.icon_state))
+		master_item.overlays -= attachment_icon
+		var/obj/item/clothing/suit/storage/marine/MI = master_item
+		MI.armor_overlays["attachment"] = null
+		attachment_icon = null
+	if(attachedItem && attachment_icon == null)
+		attachment_icon = image("icon" = 'icons/obj/clothing/suit_attachments.dmi', "icon_state" = attachedItem.icon_state)
+		var/obj/item/clothing/suit/storage/marine/MI = master_item
+		master_item.overlays += attachment_icon
+		MI.armor_overlays["attachment"] = attachment_icon
+
+	master_item.update_icon(usr)
+	master_item.update_action_button_icons()
+
+/obj/item/storage/internal/attachment/can_be_inserted(src, warning)
+	to_chat(usr, "can_be_inserted outer")
+	if(attachedItem && istype(attachedItem, /obj/item/storage))
+		var/obj/item/storage/S = attachedItem
+		to_chat(usr, "can_be_inserted inner")
+		return S.can_be_inserted(src, warning)
+	. = ..()
+
+/obj/item/storage/internal/attachment/handle_item_insertion(obj/item/W as obj, prevent_warning = 0, mob/user)
+	if(attachedItem && istype(attachedItem, /obj/item/storage))
+		var/obj/item/storage/S = attachedItem
+		S.handle_item_insertion(W, prevent_warning, user)
+		updateAttachmentIcon()
+	else if(!attachedItem)
+		..()
+		attachedItem = W
+		var/obj/item/storage/O = W
+		if(istype(O))
+			master_item.verbs += /obj/item/clothing/suit/storage/marine/verb/toggle_draw_mode
+	updateAttachmentIcon()
+	master_item.on_pocket_insertion()
+
+/obj/item/storage/internal/attachment/remove_from_storage(obj/item/I, atom/new_location)
+	. = ..()
+	updateAttachmentIcon()
+
+/obj/item/storage/internal/attachment/handle_mousedrop(mob/user as mob, obj/over_object as obj)
+	. = ..()
+	updateAttachmentIcon()

@@ -323,13 +323,27 @@
 		var/obj/item/clothing/suit/storage/S = I
 		if(!S.pockets)
 			return FALSE
-		var/obj/item/storage/internal/P = S.pockets
-		if(!length(P.contents))
-			return FALSE
-		var/obj/item/W = P.contents[length(P.contents)]
-		P.remove_from_storage(W)
-		put_in_hands(W)
-		return TRUE
+		//the logic needs to split here for the different pockets. It should probably just be refactored
+		if(istype(S.pockets, /obj/item/storage/internal/attachment))
+			var/obj/item/storage/internal/attachment/P = S.pockets
+			if (!P.attachedItem || !istype(P.attachedItem, /obj/item/storage) )
+				return FALSE
+			var/obj/item/storage/AI = P.attachedItem
+			if(!length(AI.contents))
+				return FALSE
+			var/obj/item/W = AI.contents[length(AI.contents)]
+			AI.remove_from_storage(W)
+			put_in_hands(W)
+			P.updateAttachmentIcon()
+			return TRUE
+		else //if it isn't a internal/attachment then just use the default logic
+			var/obj/item/storage/internal/P = S.pockets
+			if(!length(P.contents))
+				return FALSE
+			var/obj/item/W = P.contents[length(P.contents)]
+			P.remove_from_storage(W)
+			put_in_hands(W)
+			return TRUE
 	else if(istype(I, /obj/item/storage))
 		var/obj/item/storage/S = I
 		if(!length(S.contents))

@@ -80,7 +80,8 @@
 
 /obj/item/motiondetector/dropped(mob/user)
 	. = ..()
-	operator = null
+	if(!istype(loc, /obj/item/storage/internal/attachment))
+		operator = null
 
 
 /obj/item/motiondetector/update_icon()
@@ -88,6 +89,9 @@
 		icon_state = "detector_on_[detector_mode]"
 	else
 		icon_state = "detector_off"
+	if(istype(loc, /obj/item/storage/internal/attachment))
+		var/obj/item/storage/internal/attachment/A = loc
+		A.updateAttachmentIcon()
 	return ..()
 
 /obj/item/motiondetector/proc/deactivate()
@@ -354,3 +358,6 @@
 		icon_state = "minidetector_on_[detector_mode]"
 	else
 		icon_state = "minidetector_off"
+	if(istype(loc, /obj/item/storage/internal/attachment))
+		var/obj/item/storage/internal/attachment/A = loc
+		A.updateAttachmentIcon()

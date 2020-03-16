@@ -652,7 +652,7 @@ GLOBAL_LIST_EMPTY(damage_icon_parts)
 					for(var/i in marine_armor.armor_overlays)
 						I = marine_armor.armor_overlays[i]
 						if(I)
-							I = image('icons/mob/suit_1.dmi',src,I.icon_state)
+							I = image('icons/mob/suit_overlays.dmi',src,I.icon_state)
 							standing.overlays += I
 
 		if(istype(wear_suit, /obj/item/clothing/suit/storage/marine))
