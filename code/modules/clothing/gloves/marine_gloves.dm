@@ -16,9 +16,10 @@
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 	flags_armor_protection = HANDS
 	var/flags_marine_gloves = GLOVES_SQUAD_OVERLAY
-	armor = list("melee" = 15, "bullet" = 20, "laser" = 15, "energy" = 20, "bomb" = 20, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 20)
+	var/datum/armor/armor_original = list("melee" = 15, "bullet" = 20, "laser" = 15, "energy" = 20, "bomb" = 20, "bio" = 10, "rad" = 10, "fire" = 20, "acid" = 20)
 
 /obj/item/clothing/gloves/marine/Initialize(mapload, datum/squad/squad, rank)
+	armor = armor_original
 	. = ..()
 	if(squad)
 		var/dat = ""
@@ -27,6 +28,15 @@
 			siemens_coefficient = 0
 			desc = "Insulated marine tactical gloves that protect against electrical shocks."
 		name = dat + "marine combat gloves"
+
+/obj/item/clothing/gloves/marine/equipped(mob/user, slot)
+	. = ..()
+	armor = armor_original
+	if(slot == SLOT_GLOVES)
+		var/mob/living/carbon/human/H = user
+		if(istype(H) && istype(H.wear_suit, /obj/item/clothing/suit/storage/marine))
+			var/obj/item/clothing/suit/storage/marine/S = H.wear_suit
+			S.equip_gloves()
 
 /obj/item/clothing/gloves/marine/officer
 	name = "officer gloves"

@@ -185,7 +185,7 @@
 	icon = 'icons/obj/clothing/cm_hats.dmi'
 	sprite_sheet_id = 1
 	icon_state = "helmet"
-	armor = list("melee" = 65, "bullet" = 60, "laser" = 30, "energy" = 20, "bomb" = 25, "bio" = 40, "rad" = 0, "fire" = 20, "acid" = 20)
+	var/datum/armor/armor_original = list("melee" = 65, "bullet" = 60, "laser" = 30, "energy" = 20, "bomb" = 25, "bio" = 40, "rad" = 0, "fire" = 20, "acid" = 20)
 	max_integrity = 5
 	var/helmet_overlays[]
 	flags_inventory = BLOCKSHARPOBJ
@@ -221,10 +221,19 @@
 	max_storage_space = 2
 
 /obj/item/clothing/head/helmet/marine/Initialize()
+	armor = armor_original
 	. = ..()
 	helmet_overlays = list("damage","band","item") //To make things simple.
 	pockets = new pockets(src)
 
+/obj/item/clothing/head/helmet/marine/equipped(mob/user, slot)
+	. = ..()
+	armor = armor_original
+	if(slot == SLOT_HEAD)
+		var/mob/living/carbon/human/H = user
+		if(istype(H) && istype(H.wear_suit, /obj/item/clothing/suit/storage/marine))
+			var/obj/item/clothing/suit/storage/marine/S = H.wear_suit
+			S.equip_helmet()
 
 /obj/item/clothing/head/helmet/marine/attack_hand(mob/living/user)
 	if(pockets.handle_attack_hand(user))

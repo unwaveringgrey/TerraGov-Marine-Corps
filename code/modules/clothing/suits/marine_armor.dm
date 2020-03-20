@@ -48,6 +48,16 @@
 	. = ..()
 	armor_overlays = list("lamp") //Just one for now, can add more later.
 	update_icon()
+	AddComponent(/datum/component/armor_sharer)
+
+/obj/item/clothing/suit/storage/marine/proc/equip_helmet()
+	SEND_SIGNAL(src, HELMET_EQUIPPED)
+
+/obj/item/clothing/suit/storage/marine/proc/equip_gloves()
+	SEND_SIGNAL(src, GLOVES_EQUIPPED)
+
+/obj/item/clothing/suit/storage/marine/proc/equip_boots()
+	SEND_SIGNAL(src, BOOTS_EQUIPPED)
 
 /obj/item/clothing/suit/storage/marine/update_icon(mob/user)
 	var/image/I

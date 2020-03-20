@@ -247,6 +247,7 @@
 #include "code\datums\actions\observer_action.dm"
 #include "code\datums\actions\skill.dm"
 #include "code\datums\actions\xeno_action.dm"
+#include "code\datums\components\armor_sharer.dm"
 #include "code\datums\components\bump_attack.dm"
 #include "code\datums\components\clothing_tint.dm"
 #include "code\datums\components\dripping.dm"

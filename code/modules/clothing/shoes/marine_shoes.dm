@@ -6,7 +6,7 @@
 	icon_state = "marine"
 	item_state = "marine"
 	flags_armor_protection = FEET
-	armor = list("melee" = 15, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 25)
+	var/datum/armor/armor_original = list("melee" = 15, "bullet" = 20, "laser" = 10, "energy" = 10, "bomb" = 10, "bio" = 10, "rad" = 0, "fire" = 10, "acid" = 25)
 	flags_cold_protection = FEET
 	flags_heat_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
@@ -14,10 +14,23 @@
 	siemens_coefficient = 0.7
 	var/obj/item/knife
 
+/obj/item/clothing/shoes/marine/imperial/Initialize()
+	armor = armor_original
+	. = ..()
+
 /obj/item/clothing/shoes/marine/Destroy()
 	if(knife)
 		QDEL_NULL(knife)
 	return ..()
+
+/obj/item/clothing/shoes/marine/equipped(mob/user, slot)
+	. = ..()
+	armor = armor_original
+	if(slot == SLOT_SHOES)
+		var/mob/living/carbon/human/H = user
+		if(istype(H) && istype(H.wear_suit, /obj/item/clothing/suit/storage/marine))
+			var/obj/item/clothing/suit/storage/marine/S = H.wear_suit
+			S.equip_boots()
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/item/clothing/shoes/marine/attack_hand(mob/living/user)
