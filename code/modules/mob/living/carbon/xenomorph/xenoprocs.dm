@@ -315,8 +315,11 @@
 							throwing = FALSE //Reset throwing manually.
 							return FALSE
 
-					visible_message("<span class='danger'>[src] pounces on [M]!</span>",
-									"<span class='xenodanger'>We pounce on [M]!</span>", null, 5)
+					var/list/message = list(list(/mob/living/carbon/xenomorph,"<span class='danger'>[src] pounces on [M.xeno_name]!</span>"),
+						list(TRUE,"<span class='danger'>\The [src.human_name] pounces on [M]!</span>"))
+
+					visible_message(message,
+									"<span class='xenodanger'>We pounce on [M.xeno_name]!</span>", null, 5)
 					M.Knockdown(20)
 					step_to(src, M)
 					stop_movement()

@@ -112,9 +112,13 @@
 	var/mob/living/carbon/xenomorph/X = owner
 
 	prepare_to_pounce()
-
-	X.visible_message("<span class='xenowarning'>\The [X] pounces at [A]!</span>", \
-	"<span class='xenowarning'>We pounce at [A]!</span>")
+	if(istype(A, /mob/living/carbon))
+		var/mob/living/carbon/human/H = A
+		var/list/messages = list(list(/mob/living/carbon/xenomorph,"<span class='xenowarning'>\The [X] pounces at \The [H.xeno_name]!</span>"),
+			list(TRUE,"<span class='xenowarning'>\The [X.human_name] pounces at [A]!</span>"))
+		X.visible_message(messages, "<span class='xenowarning'>We pounce at [A]!</span>")
+	else
+		X.visible_message("<span class='xenowarning'>\The [X] pounces at \The [A]!</span>", "<span class='xenowarning'>We pounce at [A]!</span>")
 
 	sneak_attack()
 

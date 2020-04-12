@@ -46,6 +46,7 @@
 	SSblackbox.record_feedback("tally", "round_statistics", -1, "total_humans_created")
 	
 	M.real_name = name
+	M.set_obfuscated_names()
 	M.death(1) //Kills the new mob
 	M.timeofdeath = -CONFIG_GET(number/revive_grace_period)
 	if(corpseuniform)

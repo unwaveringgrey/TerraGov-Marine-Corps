@@ -10,6 +10,9 @@
 	var/stat = CONSCIOUS //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
 	var/datum/mind/mind
 	var/real_name
+	var/human_name
+	var/xeno_name
+	var/predator_name
 	var/mob_size = MOB_SIZE_HUMAN
 	var/timeofdeath = 0
 	var/a_intent = INTENT_HELP

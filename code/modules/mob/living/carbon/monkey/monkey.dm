@@ -82,6 +82,8 @@
 	if(name == initial(name)) //To stop Pun-Pun becoming generic.
 		name = "[name] ([rand(1, 1000)])"
 		real_name = name
+		human_name = "monkey"
+		xeno_name = "monky"
 
 	if(gender == NEUTER)
 		gender = pick(MALE, FEMALE)

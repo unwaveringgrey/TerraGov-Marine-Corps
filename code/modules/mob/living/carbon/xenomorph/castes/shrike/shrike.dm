@@ -38,6 +38,8 @@
 
 	//Update linked data so they show up properly
 	real_name = name
+	human_name = name
+	xeno_name = name
 	if(mind)
 		mind.name = name
 

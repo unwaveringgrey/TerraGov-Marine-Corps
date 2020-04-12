@@ -92,6 +92,13 @@
 					continue
 				if(length(overrides) && (A in overrides))
 					continue
+			//	if(ismob(A) && ishuman(src))
+			//		var/mob/living/carbon/C = A
+			//		statpanel(listed_turf.name, null, "[icon2html(C)] [C.human_name].")
+			//	else if(ismob(A) && isxeno(src))
+			//		var/mob/living/carbon/C = A
+			//		statpanel(listed_turf.name, null, "[icon2html(C)] [C.xeno_name].")
+			//	else
 				statpanel(listed_turf.name, null, A)
 
 
@@ -156,24 +163,51 @@
 	if(vision_distance)
 		range = vision_distance
 
-	for(var/mob/M in get_hearers_in_view(range, src))
-		if(!M.client)
-			continue
-		if(M == ignored_mob)
-			continue
-
-		var/msg = message
-
-		if(M == src && self_message) //the src always see the main message or self message
-			msg = self_message
-
-		else if(M.see_invisible < invisibility || (T != loc && T != src)) //if src is invisible to us or is inside something (and isn't a turf),
-			if(!blind_message) // then people see blind message if there is one, otherwise nothing.
+	
+	if(istype(message,/list))//if a list is passed then we use logic to determine which message the hearer should receive
+		//message should be a multidimensional list. Each entry contains [1] the mob type to show the message to and [2] the message
+		//It goes through the list and shows only the first match. if the [1] is simply TRUE then it shows it to everyone.
+		for(var/mob/M in get_hearers_in_view(range, src))
+			if(!M.client)
+				continue
+			if(M == ignored_mob)
 				continue
 
-			msg = blind_message
+			var/msg  = ""
 
-		M.show_message(msg, EMOTE_VISIBLE, blind_message, EMOTE_AUDIBLE)
+			if(M == src && self_message) //the src always see the main message or self message
+				msg = self_message
+
+			else if(M.see_invisible < invisibility || (T != loc && T != src)) //if src is invisible to us or is inside something (and isn't a turf),
+				if(!blind_message) // then people see blind message if there is one, otherwise nothing.
+					continue
+				msg = blind_message
+			else
+				for(var/list/L in message)
+					if(istype(M, L[1]) || L[1] == TRUE)
+						msg = L[2]
+						continue
+
+			M.show_message(msg, EMOTE_VISIBLE, blind_message, EMOTE_AUDIBLE)
+	else
+		for(var/mob/M in get_hearers_in_view(range, src))
+			if(!M.client)
+				continue
+			if(M == ignored_mob)
+				continue
+
+			var/msg = message
+
+			if(M == src && self_message) //the src always see the main message or self message
+				msg = self_message
+
+			else if(M.see_invisible < invisibility || (T != loc && T != src)) //if src is invisible to us or is inside something (and isn't a turf),
+				if(!blind_message) // then people see blind message if there is one, otherwise nothing.
+					continue
+
+				msg = blind_message
+
+			M.show_message(msg, EMOTE_VISIBLE, blind_message, EMOTE_AUDIBLE)
 
 
 // Show a message to all mobs in earshot of this one
@@ -840,3 +874,10 @@
 		remove_movespeed_modifier(MOVESPEED_ID_MOB_GRAB_STATE)
 		return
 	add_movespeed_modifier(MOVESPEED_ID_MOB_GRAB_STATE, TRUE, 100, NONE, TRUE, grab_state * 3)
+
+mob/proc/get_obfuscated_name()
+	if(isxeno(src))
+		return xeno_name
+	//if(istype(src,  /mob/living/predator))
+	//	return predator_name
+	return name

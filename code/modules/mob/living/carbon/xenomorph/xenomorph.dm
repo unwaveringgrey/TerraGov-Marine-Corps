@@ -89,6 +89,8 @@
 
 	//Update linked data so they show up properly
 	real_name = name
+	xeno_name = name
+	human_name = lowertext("[xeno_caste.upgrade_name] [xeno_caste.display_name]")
 	if(mind)
 		mind.name = name
 

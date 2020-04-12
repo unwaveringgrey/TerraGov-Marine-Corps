@@ -5,7 +5,7 @@
 
 		if(icon)
 			msg += "[icon2html(icon, user)] "
-		msg += "<b>[name]</b>!\n"
+		msg += "\a <b>[xeno_name]</b>!\n"
 
 		if(species.species_flags & IS_SYNTHETIC)
 			msg += "<span style='font-weight: bold; color: purple;'>You sense this creature is not organic.</span>\n"

@@ -90,6 +90,8 @@
 			name = "[hive.prefix]Ancient Empress" //Ancient
 
 	real_name = name
+	human_name = name
+	xeno_name = name
 	if(mind)
 		mind.name = name
 

@@ -155,14 +155,23 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	var/deaf_type
 	if(speaker != src)
 		if(!radio_freq) //These checks have to be seperate, else people talking on the radio will make "You can't hear yourself!" appear when hearing people over the radio while deaf.
-			deaf_message = "<span class='name'>[speaker]</span> [speaker.verb_say] something but you cannot hear [speaker.p_them()]."
-			deaf_type = 1
+			if(ishuman(src) && isliving(speaker))
+				var/mob/living/carbon/C = speaker
+				deaf_message = "<span class='name'>[C.human_name]</span> [speaker.verb_say] something but you cannot hear [speaker.p_them()]."
+				deaf_type = 1
+			else if(isxeno(src) && isliving(speaker))
+				var/mob/living/carbon/C = speaker
+				deaf_message = "<span class='name'>[C.xeno_name]</span> [speaker.verb_say] something but you cannot hear [speaker.p_them()]."
+				deaf_type = 1
+			else
+				deaf_message = "<span class='name'>[speaker]</span> [speaker.verb_say] something but you cannot hear [speaker.p_them()]."
+				deaf_type = 1
 	else
 		deaf_message = "<span class='notice'>You can't hear yourself!</span>"
 		deaf_type = 2 // Since you should be able to hear yourself without looking
 
 	// Recompose message for AI hrefs, language incomprehension.
-	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mode)
+	message = compose_message(speaker, message_language, raw_message, radio_freq, spans, message_mode, "Beep-Boop")
 	message = hear_intercept(message, speaker, message_language, raw_message, radio_freq, spans, message_mode)
 	show_message(message, 2, deaf_message, deaf_type)
 	return message

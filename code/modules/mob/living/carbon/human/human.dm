@@ -32,6 +32,8 @@
 
 	randomize_appearance()
 
+	set_obfuscated_names()
+
 	RegisterSignal(src, list(COMSIG_KB_QUICKEQUIP, COMSIG_CLICK_QUICKEQUIP), .proc/do_quick_equip)
 	RegisterSignal(src, COMSIG_KB_HOLSTER, .proc/do_holster)
 	RegisterSignal(src, COMSIG_KB_UNIQUEACTION, .proc/do_unique_action)
@@ -1214,6 +1216,7 @@
 	delete_equipment(TRUE)
 	equipOutfit(O, FALSE)
 	regenerate_icons()
+	set_obfuscated_names()
 
 	return TRUE
 
@@ -1291,3 +1294,31 @@
 	if(buckled)
 		return
 	return ..()
+
+/mob/living/carbon/human/proc/set_obfuscated_names()
+	human_name = name
+
+
+	if(assigned_squad)
+		switch(assigned_squad.name)
+			if("Alpha")
+				xeno_name = "red unga"
+				predator_name = "red tribe hooman"
+				return TRUE
+			if("Bravo")
+				xeno_name = "yellow unga"
+				predator_name = "yellow tribe hooman"
+				return TRUE
+			if("Charlie")
+				xeno_name = "purple unga"
+				predator_name = "purple tribe hooman"
+				return TRUE
+			if("Delta")
+				xeno_name = "blue unga"
+				predator_name = "blue tribe hooman"
+				return TRUE
+
+	xeno_name = "tallhost"
+	predator_name = "hooman"
+	return TRUE
+

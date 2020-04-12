@@ -56,6 +56,16 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	if(face_name && ishuman(speaker))
 		var/mob/living/carbon/human/H = speaker
 		namepart = "[H.get_face_name()]" //So "fake" speaking like in hallucinations does not give the speaker away if disguised
+	//obfuscate the speaker across species. This should override face_name
+	//This should probably eventually be modified to allow for those with sufficient ranks in science to see xeno names too
+	//(basically that means just synths and researchers I think)
+	if(ishuman(src) && !ishuman(speaker) && isliving(speaker))
+		var/mob/living/carbon/C = speaker
+		namepart = "[C.human_name]"
+	else if(isxeno(src) && !isxeno(speaker) && isliving(speaker))
+		var/mob/living/carbon/C = speaker
+		namepart = "[C.xeno_name]"
+
 	//End name span.
 	var/endspanpart = "</span>"
 

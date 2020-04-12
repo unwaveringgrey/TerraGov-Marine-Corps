@@ -68,6 +68,8 @@
 
 	//Update linked data so they show up properly
 	real_name = name
+	xeno_name = "noodle"
+	human_name = "noodle"
 	if(mind)
 		mind.name = name //This gives them the proper name in deadchat if they explode on death. It's always the small things
 
